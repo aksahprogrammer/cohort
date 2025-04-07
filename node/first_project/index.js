@@ -4,6 +4,10 @@ import cors from "cors";
 
 import dbConnection from './utils/db.js';
 
+//import all routes
+
+import studentRoute from "./routes/student.route.js";
+
 
 dotenv.config();
 
@@ -31,6 +35,10 @@ app.get('/ashok', (req, res) => {
 
 //Connect to db
 dbConnection();
+
+//Routes
+
+app.use("/api/v1/student", studentRoute);
 
 app.listen(port, () => {
     console.log('Server is running on port no. ' + port);
